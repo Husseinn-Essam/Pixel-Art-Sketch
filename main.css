@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    justify-self: center;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    width: 256px;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+.pixel {
+    background-color: aqua;
+    width: 30px;
+    height: 30px;
+}
