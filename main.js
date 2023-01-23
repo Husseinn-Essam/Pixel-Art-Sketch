@@ -14,36 +14,15 @@ const rgbMode = document.querySelector(".btn2");
 const clear = document.querySelector(".btn4");
 var range = document.querySelector(".sketchSize");
 var size = range.value;
-for (var i = 0; i < size * size; i++) {
-    let pixel = document.createElement("div");
-    pixel.classList.add("pixel");
-    pixel.style.width = 500 / size + "px"
-    pixel.style.height = 500 / size + "px"
-    container.appendChild(pixel);
-}
+// for (var i = 0; i < size * size; i++) {
+//     let pixel = document.createElement("div");
+//     pixel.classList.add("pixel");
+//     pixel.style.width = 500 / size + "px"
+//     pixel.style.height = 500 / size + "px"
+//     container.appendChild(pixel);
+// }
 var oldsize = size;
-range.addEventListener("mouseup", () => {
-    var divs = document.querySelectorAll(".pixel");
-    for (var i = 0; i < divs.length; i++) {
-        // let pixel = document.createElement("div");
-        // pixel.classList.add("pixel");
-        // pixel.style.width = 500 / size + "px"
-        // pixel.style.height = 500 / size + "px"
-        // container.appendChild(pixel);
-        container.removeChild(divs[i]);
-    }
-    size = range.value;
 
-    for (var i = 0; i < size * size; i++) {
-        let pixel = document.createElement("div");
-        pixel.classList.add("pixel");
-        pixel.style.width = 500 / size + "px"
-        pixel.style.height = 500 / size + "px"
-        container.appendChild(pixel);
-    }
-    container.style.gridTemplateColumns = `repeat(${size},1fr)`;
-    container.style.gridTemplateRows = `repeat(${size},1fr)`;
-})
 
 
 //container.style.gridTemplateColumns = `repeat(${size},1fr)`;
@@ -74,18 +53,35 @@ clear.addEventListener('click', () => {
         pixel.style.backgroundColor = "white";
     })
 })
-pixels.forEach(pixel => {
+range.addEventListener("mouseup", () => {
+    var divs = document.querySelectorAll(".pixel");
+    for (var i = 0; i < divs.length; i++) {
+        container.removeChild(divs[i]);
+    }
+    size = range.value;
 
-    pixel.addEventListener('mouseover', (e) => {
-        if (e.buttons == 1 || e.buttons == 3) {
-            if (isErasing == true) {
-                pixel.style.backgroundColor = "white";
-            } else if (rgb == true) {
-                pixel.style.backgroundColor = generateRandomColor();
+    for (var i = 0; i < size * size; i++) {
+        let pixel = document.createElement("div");
+        pixel.classList.add("pixel");
+        pixel.style.width = 500 / size + "px"
+        pixel.style.height = 500 / size + "px"
+        container.appendChild(pixel);
+    }
+    container.style.gridTemplateColumns = `repeat(${size},1fr)`;
+    container.style.gridTemplateRows = `repeat(${size},1fr)`;
+    let pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => {
+        pixel.addEventListener('mouseover', (e) => {
+            if (e.buttons == 1 || e.buttons == 3) {
+                if (isErasing == true) {
+                    pixel.style.backgroundColor = "white";
+                } else if (rgb == true) {
+                    pixel.style.backgroundColor = generateRandomColor();
+                }
+                else if (rgb == false && isErasing == false) {
+                    pixel.style.backgroundColor = color.value;
+                }
             }
-            else if (rgb == false && isErasing == false) {
-                pixel.style.backgroundColor = color.value;
-            }
-        }
+        })
     })
 })
