@@ -12,11 +12,42 @@ const eraser = document.querySelector(".btn3");
 const colorMode = document.querySelector(".btn1");
 const rgbMode = document.querySelector(".btn2");
 const clear = document.querySelector(".btn4");
-for (var i = 0; i < 256; i++) {
+var range = document.querySelector(".sketchSize");
+var size = range.value;
+for (var i = 0; i < size * size; i++) {
     let pixel = document.createElement("div");
     pixel.classList.add("pixel");
+    pixel.style.width = 500 / size + "px"
+    pixel.style.height = 500 / size + "px"
     container.appendChild(pixel);
 }
+var oldsize = size;
+range.addEventListener("mouseup", () => {
+    var divs = document.querySelectorAll(".pixel");
+    for (var i = 0; i < divs.length; i++) {
+        // let pixel = document.createElement("div");
+        // pixel.classList.add("pixel");
+        // pixel.style.width = 500 / size + "px"
+        // pixel.style.height = 500 / size + "px"
+        // container.appendChild(pixel);
+        container.removeChild(divs[i]);
+    }
+    size = range.value;
+
+    for (var i = 0; i < size * size; i++) {
+        let pixel = document.createElement("div");
+        pixel.classList.add("pixel");
+        pixel.style.width = 500 / size + "px"
+        pixel.style.height = 500 / size + "px"
+        container.appendChild(pixel);
+    }
+    container.style.gridTemplateColumns = `repeat(${size},1fr)`;
+    container.style.gridTemplateRows = `repeat(${size},1fr)`;
+})
+
+
+//container.style.gridTemplateColumns = `repeat(${size},1fr)`;
+//container.style.gridTemplateRows = `repeat(${size},1fr)`;
 let isErasing = false;
 let rgb = false;
 let clearAll = false;
