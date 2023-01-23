@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>Sketch</title>
 </head>
-<h1 class="title">Sketch</h1>
+<h1 class="title">Pixel Sketch</h1>
 
 <body>
 
@@ -16,13 +17,16 @@
         <div class="toolbar">
             <div class="customize">
                 <input type="color" id="colorPick">
-                <label style="margin-top: 1.25rem;">Color Picker</label>
+                <label style="margin-top: 1.25rem; margin-left: 0.5rem;">Color Picker</label>
             </div>
             <button class="btn1">Color mode</button>
             <button class="btn2">rgb mode</button>
             <button class="btn3">eraser</button>
             <button class="btn4">clear</button>
-            <input type="range" class="sketchSize">
+            <div class="sizePicker">
+                <input type="range" class="sketchSize" min="1" max="64">
+                <label id="sizeId">TEST</label>
+            </div>
         </div>
         <div class="container">
         </div>
