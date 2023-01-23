@@ -1,18 +1,26 @@
+@import url('https://fonts.cdnfonts.com/css/common-pixel');
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
     font-family: sans-serif;
+    color: #E7F6F2;
 }
 
+
 body {
-    background-color: whitesmoke;
+    background-color: #2C3333;
 }
 
 .big {
-    display: grid;
-    grid-template-columns: 1fr 16fr;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 160px;
+    max-width: 915px;
+    margin: 0 auto;
 }
 
 .customize {
@@ -28,21 +36,36 @@ body {
     left: 90px;
 }
 
-.toolbar button {
-    background-color: gray;
-    color: white;
-    padding: 0.5rem;
-    /* margin: 0.5rem;  */
-    border-radius: 5px;
+.sizePicker {
+    display: flex;
+    flex-direction: column;
 }
+
+.sizePicker label {
+    margin-left: 108px;
+    margin-top: 10px;
+}
+
+.toolbar button {
+    background-color: #E7F6F2;
+    padding: 0.5rem;
+    margin: 0 auto;
+    border-radius: 5px;
+    width: 70%;
+    cursor: pointer;
+    color: #2C3333;
+    font-size: 15px;
+}
+
 
 .toolbar {
     display: flex;
-    background-color: aqua;
+    background-color: #395B64;
     flex-direction: column;
     width: 16rem;
     gap: 3rem;
-    margin-left: 10rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
 }
 
 .container {
@@ -51,12 +74,10 @@ body {
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     width: 256px;
-    margin: 0 auto;
-    /* margin-top: 3rem; */
 }
 
 .pixel {
-    background-color: aqua;
+    background-color: white;
     width: 30px;
     height: 30px;
 }
@@ -65,5 +86,5 @@ body {
     margin-top: 3rem;
     margin-left: 3rem;
     font-size: 5rem;
-
+    font-family: 'Common Pixel', sans-serif;
 }
